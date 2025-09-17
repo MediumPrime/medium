@@ -140,7 +140,8 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Departamento</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cargo</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Salário</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Subsídios</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Sub. Alimentação</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Sub. Transporte</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Faltas</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider admin-only">Ações</th>
@@ -332,7 +333,7 @@
                         </div>
                         <div class="flex justify-between text-sm admin-only">
                             <span class="text-gray-500">Orçamento:</span>
-                            <span class="font-medium">€45.000/mês</span>
+                            <span class="font-medium">Kz 45.000.000/mês</span>
                         </div>
                     </div>
                 </div>
@@ -350,7 +351,7 @@
                         </div>
                         <div class="flex justify-between text-sm admin-only">
                             <span class="text-gray-500">Orçamento:</span>
-                            <span class="font-medium">€72.000/mês</span>
+                            <span class="font-medium">Kz 72.000.000/mês</span>
                         </div>
                     </div>
                 </div>
@@ -368,7 +369,7 @@
                         </div>
                         <div class="flex justify-between text-sm admin-only">
                             <span class="text-gray-500">Orçamento:</span>
-                            <span class="font-medium">€58.000/mês</span>
+                            <span class="font-medium">Kz 58.000.000/mês</span>
                         </div>
                     </div>
                 </div>
@@ -386,7 +387,7 @@
                         </div>
                         <div class="flex justify-between text-sm admin-only">
                             <span class="text-gray-500">Orçamento:</span>
-                            <span class="font-medium">€35.000/mês</span>
+                            <span class="font-medium">Kz 35.000.000/mês</span>
                         </div>
                     </div>
                 </div>
@@ -402,7 +403,7 @@
                         <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
                             <div>
                                 <p class="text-sm text-gray-600">Total de Salários</p>
-                                <p class="text-2xl font-bold text-blue-600">€210.000</p>
+                                <p class="text-2xl font-bold text-blue-600">Kz 210.000.000</p>
                             </div>
                             <div class="text-blue-600">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -413,7 +414,7 @@
                         <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
                             <div>
                                 <p class="text-sm text-gray-600">Total de Subsídios</p>
-                                <p class="text-2xl font-bold text-green-600">€45.000</p>
+                                <p class="text-2xl font-bold text-green-600">Kz 45.000.000</p>
                             </div>
                             <div class="text-green-600">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -918,12 +919,16 @@
                         <input type="text" id="newEmployeePosition" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Salário (€)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Salário (Kz)</label>
                         <input type="number" id="newEmployeeSalary" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Subsídios (€)</label>
-                        <input type="number" id="newEmployeeSubsidies" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subsídio de Alimentação (Kz)</label>
+                        <input type="number" id="newEmployeeFoodSubsidy" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subsídio de Transporte (Kz)</label>
+                        <input type="number" id="newEmployeeTransportSubsidy" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     </div>
                 </div>
             </div>
@@ -1082,11 +1087,11 @@
         
         // Sample employee data
         let employees = [
-            { id: 1, name: 'Ana Silva', email: 'ana.silva@mediumprime.pt', department: 'Recursos Humanos', position: 'Gerente de RH', salary: 4500, subsidies: 800, absences: 2, status: 'Ativo', photo: '' },
-            { id: 2, name: 'Carlos Santos', email: 'carlos.santos@mediumprime.pt', department: 'Tecnologia', position: 'Desenvolvedor Senior', salary: 5200, subsidies: 900, absences: 1, status: 'Ativo', photo: '' },
-            { id: 3, name: 'Maria Costa', email: 'maria.costa@mediumprime.pt', department: 'Vendas', position: 'Representante de Vendas', salary: 3800, subsidies: 600, absences: 0, status: 'Ativo', photo: '' },
-            { id: 4, name: 'João Pereira', email: 'joao.pereira@mediumprime.pt', department: 'Marketing', position: 'Especialista em Marketing', salary: 4000, subsidies: 700, absences: 3, status: 'Ativo', photo: '' },
-            { id: 5, name: 'Sofia Rodrigues', email: 'sofia.rodrigues@mediumprime.pt', department: 'Tecnologia', position: 'Designer UX/UI', salary: 4200, subsidies: 750, absences: 1, status: 'Ativo', photo: '' }
+            { id: 1, name: 'Ana Silva', email: 'ana.silva@mediumprime.pt', department: 'Recursos Humanos', position: 'Gerente de RH', salary: 450000, foodSubsidy: 50000, transportSubsidy: 30000, absences: 2, status: 'Ativo', photo: '' },
+            { id: 2, name: 'Carlos Santos', email: 'carlos.santos@mediumprime.pt', department: 'Tecnologia', position: 'Desenvolvedor Senior', salary: 520000, foodSubsidy: 55000, transportSubsidy: 35000, absences: 1, status: 'Ativo', photo: '' },
+            { id: 3, name: 'Maria Costa', email: 'maria.costa@mediumprime.pt', department: 'Vendas', position: 'Representante de Vendas', salary: 380000, foodSubsidy: 40000, transportSubsidy: 25000, absences: 0, status: 'Ativo', photo: '' },
+            { id: 4, name: 'João Pereira', email: 'joao.pereira@mediumprime.pt', department: 'Marketing', position: 'Especialista em Marketing', salary: 400000, foodSubsidy: 45000, transportSubsidy: 25000, absences: 3, status: 'Ativo', photo: '' },
+            { id: 5, name: 'Sofia Rodrigues', email: 'sofia.rodrigues@mediumprime.pt', department: 'Tecnologia', position: 'Designer UX/UI', salary: 420000, foodSubsidy: 50000, transportSubsidy: 30000, absences: 1, status: 'Ativo', photo: '' }
         ];
 
         // Sample vacation data
@@ -1850,8 +1855,9 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${employee.position}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">€${employee.salary.toLocaleString()}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">€${employee.subsidies.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.salary.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.foodSubsidy.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.transportSubsidy.toLocaleString()}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">${employee.absences}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
@@ -1915,8 +1921,9 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${employee.position}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">€${employee.salary.toLocaleString()}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">€${employee.subsidies.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.salary.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.foodSubsidy.toLocaleString()}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">Kz ${employee.transportSubsidy.toLocaleString()}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 admin-only">${employee.absences}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
@@ -1947,7 +1954,8 @@
             document.getElementById('newEmployeeDepartment').value = '';
             document.getElementById('newEmployeePosition').value = '';
             document.getElementById('newEmployeeSalary').value = '';
-            document.getElementById('newEmployeeSubsidies').value = '';
+            document.getElementById('newEmployeeFoodSubsidy').value = '';
+            document.getElementById('newEmployeeTransportSubsidy').value = '';
             document.getElementById('employeePhotoFile').value = '';
             document.getElementById('employeePhotoUrl').value = '';
             resetPhotoPreview();
@@ -1959,7 +1967,8 @@
             const department = document.getElementById('newEmployeeDepartment').value;
             const position = document.getElementById('newEmployeePosition').value;
             const salary = parseInt(document.getElementById('newEmployeeSalary').value) || 0;
-            const subsidies = parseInt(document.getElementById('newEmployeeSubsidies').value) || 0;
+            const foodSubsidy = parseInt(document.getElementById('newEmployeeFoodSubsidy').value) || 0;
+            const transportSubsidy = parseInt(document.getElementById('newEmployeeTransportSubsidy').value) || 0;
             const photo = getCurrentPhoto();
 
             if (name && email && department && position) {
@@ -1970,7 +1979,8 @@
                     department,
                     position,
                     salary,
-                    subsidies,
+                    foodSubsidy,
+                    transportSubsidy,
                     absences: 0,
                     status: 'Ativo',
                     photo
@@ -2043,5 +2053,6 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9806fb87b21c77d9',t:'MTc1ODA5NTExMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98073ed6c7c377d9',t:'MTc1ODA5Nzg2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
